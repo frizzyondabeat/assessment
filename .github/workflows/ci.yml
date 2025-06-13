@@ -1,0 +1,59 @@
+name: CI
+
+on:
+  pull_request:
+    branches: [ main ]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  lint-and-format:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      with:
+        ref: ${{ github.head_ref }}
+        fetch-depth: 0
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+
+    - name: Install pnpm
+      uses: pnpm/action-setup@v2
+      with:
+        version: 8
+        run_install: false
+
+    - name: Get pnpm store directory
+      shell: bash
+      run: |
+        echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
+
+    - name: Setup pnpm cache
+      uses: actions/cache@v3
+      with:
+        path: ${{ env.STORE_PATH }}
+        key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+        restore-keys: |
+          ${{ runner.os }}-pnpm-store-
+
+    - name: Install dependencies
+      run: pnpm install --frozen-lockfile
+
+    - name: Format code
+      run: pnpm format:fix
+
+    - name: Commit format changes if any
+      run: |
+        git config --local user.email "github-actions[bot]@users.noreply.github.com"
+        git config --local user.name "github-actions[bot]"
+        git diff --quiet && git diff --staged --quiet || (git add . && git commit -m "chore: format code with prettier" && git push)
+
+    - name: Lint code
+      run: pnpm lint

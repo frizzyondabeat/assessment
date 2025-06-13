@@ -1,0 +1,30 @@
+# Production Docker Compose configuration
+# This file is used for deploying the application in production environments
+
+version: '3.8'
+
+services:
+  frontend-assessment:
+    image: ${IMAGE_TAG:-ghcr.io/username/assessment:latest}
+    restart: always
+    environment:
+      NODE_ENV: production
+      # Add other production environment variables here
+    ports:
+      - "3000:3000"
+    # Add health check for production reliability
+    healthcheck:
+      test: ["CMD", "wget", "--spider", "-q", "http://localhost:3000"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    # Add resource limits for production stability
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 1G
+        reservations:
+          cpus: '0.5'
+          memory: 512M

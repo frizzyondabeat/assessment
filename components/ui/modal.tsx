@@ -19,7 +19,6 @@ import {
   DrawerHeader,
   DrawerTitle,
 } from '@/components/ui/drawer';
-import { Separator } from '@/components/ui/separator';
 import {
   Sheet,
   SheetClose,
@@ -117,7 +116,7 @@ const Modal: FC<ModalType> = ({
           <SheetContent
             side={side}
             className={cn(
-              'bg-background-1 gap-0 w-full overflow-hidden border-0',
+              'bg-background-1 w-full gap-0 overflow-hidden border-0',
               className,
               {
                 'rounded-tl-2xl rounded-tr-2xl': side === 'bottom',
@@ -127,17 +126,23 @@ const Modal: FC<ModalType> = ({
             )}
           >
             {(title || description) && (
-              <SheetHeader className="flex flex-row p-4 text-white items-center h-full justify-between bg-[#755ae2]">
+              <SheetHeader className="flex h-full flex-row items-center justify-between bg-[#755ae2] p-4 text-white">
                 <div>
-                  {title && <SheetTitle className="text-lg text-white font-semibold">{title}</SheetTitle>}
+                  {title && (
+                    <SheetTitle className="text-lg font-semibold text-white">
+                      {title}
+                    </SheetTitle>
+                  )}
                   {description && (
-                    <SheetDescription className="text-muted-foreground text-sm">{description}</SheetDescription>
+                    <SheetDescription className="text-muted-foreground text-sm">
+                      {description}
+                    </SheetDescription>
                   )}
                 </div>
                 <SheetClose
                   className={cn(
                     buttonVariants({ variant: 'ghost', size: 'default' }),
-                    "hover:bg-[#F5F3FF33] hover:text-white cursor-pointer"
+                    'cursor-pointer hover:bg-[#F5F3FF33] hover:text-white'
                   )}
                 >
                   <span>Close</span>
@@ -146,7 +151,11 @@ const Modal: FC<ModalType> = ({
             )}
             <div className="bg-[#F5F3FF]">
               {content}
-              {footer && <SheetFooter className="rounded-lg bg-white p-4 flex sm:items-center sm:justify-end">{footer}</SheetFooter>}
+              {footer && (
+                <SheetFooter className="flex rounded-lg bg-white p-4 sm:items-center sm:justify-end">
+                  {footer}
+                </SheetFooter>
+              )}
             </div>
           </SheetContent>
         </Sheet>
@@ -162,9 +171,15 @@ const Modal: FC<ModalType> = ({
           open={open}
           onOpenChange={onOpenChange}
         >
-          <DialogContent showCloseButton={false} className={cn('p-0 overflow-hidden border-0 space-y-0 gap-0', className)}>
+          <DialogContent
+            showCloseButton={false}
+            className={cn(
+              'gap-0 space-y-0 overflow-hidden border-0 p-0',
+              className
+            )}
+          >
             {(title || description) && (
-              <DialogHeader className="flex flex-row p-4 text-white items-center h-full justify-between bg-[#755ae2]">
+              <DialogHeader className="flex h-full flex-row items-center justify-between bg-[#755ae2] p-4 text-white">
                 <div>
                   {title && (
                     <DialogTitle className="text-lg font-semibold">
@@ -179,17 +194,21 @@ const Modal: FC<ModalType> = ({
                 </div>
                 <DialogClose
                   className={cn(
-                    buttonVariants({ variant: 'ghost', size: 'default' })
-                  , "hover:bg-[#F5F3FF33] hover:text-white cursor-pointer")}
+                    buttonVariants({ variant: 'ghost', size: 'default' }),
+                    'cursor-pointer hover:bg-[#F5F3FF33] hover:text-white'
+                  )}
                 >
                   <span>Close</span>
                 </DialogClose>
               </DialogHeader>
             )}
             <div className="bg-[#F5F3FF]">
-
-            {content}
-            {footer && <DialogFooter className="rounded-lg bg-white p-4 flex sm:items-center sm:justify-end">{footer}</DialogFooter>}
+              {content}
+              {footer && (
+                <DialogFooter className="flex rounded-lg bg-white p-4 sm:items-center sm:justify-end">
+                  {footer}
+                </DialogFooter>
+              )}
             </div>
           </DialogContent>
         </Dialog>
@@ -216,17 +235,23 @@ const Modal: FC<ModalType> = ({
             )}
           >
             {(title || description) && (
-              <SheetHeader className="flex flex-row p-4 text-white items-center h-full justify-between bg-[#755ae2]">
+              <SheetHeader className="flex h-full flex-row items-center justify-between bg-[#755ae2] p-4 text-white">
                 <div>
-                  {title && <SheetTitle className="text-lg font-semibold">{title}</SheetTitle>}
+                  {title && (
+                    <SheetTitle className="text-lg font-semibold">
+                      {title}
+                    </SheetTitle>
+                  )}
                   {description && (
-                    <SheetDescription className="text-muted-foreground text-sm">{description}</SheetDescription>
+                    <SheetDescription className="text-muted-foreground text-sm">
+                      {description}
+                    </SheetDescription>
                   )}
                 </div>
                 <SheetClose
                   className={cn(
                     buttonVariants({ variant: 'ghost', size: 'default' }),
-                    "hover:bg-[#F5F3FF33] hover:text-white cursor-pointer"
+                    'cursor-pointer hover:bg-[#F5F3FF33] hover:text-white'
                   )}
                 >
                   <span>Close</span>
@@ -235,7 +260,11 @@ const Modal: FC<ModalType> = ({
             )}
             <div className="bg-[#F5F3FF]">
               {content}
-              {footer && <SheetFooter className="rounded-lg bg-white p-4 flex sm:items-center sm:justify-end">{footer}</SheetFooter>}
+              {footer && (
+                <SheetFooter className="flex rounded-lg bg-white p-4 sm:items-center sm:justify-end">
+                  {footer}
+                </SheetFooter>
+              )}
             </div>
           </SheetContent>
         </Sheet>

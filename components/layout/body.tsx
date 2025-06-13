@@ -9,6 +9,7 @@ import { useLightingCheck } from '@/hooks/use-lighting-check';
 import { useMicrophoneCheck } from '@/hooks/use-microphone-check';
 import { useWebcamCheck } from '@/hooks/use-webcam-check';
 import { Camera } from 'lucide-react';
+import Image from 'next/image';
 import React, { useEffect, useRef, useState, FC } from 'react';
 import Webcam from 'react-webcam';
 
@@ -68,7 +69,7 @@ const WebcamFallbackMessage: FC<{
         <ul className="mt-2 space-y-1 text-left text-sm">
           <li>• Refreshing the page</li>
           <li>• Checking if your camera is blocked by another application</li>
-          <li>• Clicking the "Retry" button in the Webcam status section</li>
+          <li>• Clicking the &quot;Retry&quot; button in the Webcam status section</li>
           <li>• Checking browser permissions for camera access</li>
           <li>• Trying a different browser (Chrome recommended)</li>
         </ul>
@@ -311,7 +312,7 @@ const Body = () => {
             We utilize your camera image to ensure fairness for all
             participants, and we also employ both your camera and microphone for
             a video questions where you will be prompted to record a response
-            using your camera or webcam, so it's essential to verify that your
+            using your camera or webcam, so it&apos;s essential to verify that your
             camera and microphone are functioning correctly and that you have a
             stable internet connection. To do this, please position yourself in
             front of your camera, ensuring that your entire face is clearly
@@ -327,9 +328,11 @@ const Body = () => {
             {capturedImage ? (
               // Show captured image
               <div className="relative h-full w-full">
-                <img
+                <Image
                   src={capturedImage}
                   alt="Captured"
+                  fill
+                  priority
                   className="h-full w-full object-cover"
                 />
                 <div className="absolute top-2 right-2 flex space-x-2 sm:top-4 sm:right-4">

@@ -81,6 +81,34 @@ Each check will display a status indicator showing whether the component is:
 - `pnpm format`: Check code formatting with Prettier
 - `pnpm format:fix`: Automatically fix code formatting issues
 
+## CI/CD
+
+This project uses GitHub Actions for continuous integration and deployment:
+
+- **Pull Request Workflow (CI)**: Automatically runs on every PR to the `main` branch
+  - Formats code using Prettier
+  - Commits any formatting changes back to the PR
+  - Runs ESLint to ensure code quality
+
+- **Main Branch Workflow (CD)**: Automatically runs when changes are pushed to the `main` branch
+  - Builds a Docker image of the application
+  - Pushes the image to GitHub Container Registry (ghcr.io)
+  - Tags the image with the commit SHA, branch name, and 'latest'
+
+The workflow configurations can be found in:
+- `.github/workflows/ci.yml` - Continuous Integration
+- `.github/workflows/cd.yml` - Continuous Deployment
+
+### Docker Deployment
+
+For production deployment, a dedicated `docker-compose.prod.yml` file is provided with:
+- Production-specific configurations
+- Health checks for reliability
+- Resource limits for stability
+- Automatic container restart
+
+See [Docker README](README.Docker.md) for more details on Docker usage.
+
 ## License
 
 [Add your license information here]

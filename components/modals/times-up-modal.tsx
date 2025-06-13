@@ -30,7 +30,7 @@ const TimesUpModal: React.FC<TimesUpModalProps> = ({
           Your time has expired
         </h2>
         <p className="mb-4 sm:mb-6 text-center text-xs sm:text-sm text-[#4a4a68]">
-          You've reached the end of your allocated time.
+          You&apos;ve reached the end of your allocated time.
           Please submit your assessment or request additional time
           if needed.
         </p>

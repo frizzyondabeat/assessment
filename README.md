@@ -1,36 +1,90 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Assessment
+
+<p align="center">
+  <img src="public/assessment-logo.svg" alt="Assessment Logo" width="120" />
+</p>
+
+## Overview
+
+Assessment is a Next.js application designed to evaluate and monitor system capabilities for video conferencing and similar applications. It provides real-time checks for webcam access, microphone functionality, network connectivity, and lighting conditions to ensure optimal user experience.
+
+## Features
+
+- **System Status Monitoring**: Real-time monitoring of critical system components
+- **Webcam Access Check**: Verifies camera permissions and functionality
+- **Lighting Quality Analysis**: Analyzes lighting conditions to ensure optimal video quality
+- **Network Connectivity Test**: Monitors network status for stable connections
+- **Responsive UI**: Modern interface built with Tailwind CSS
+
+## Technologies
+
+- **Framework**: Next.js 15.3.3
+- **UI Library**: React 19
+- **Styling**: Tailwind CSS 4
+- **Icons**: Lucide React, Iconsax
+- **Media Handling**: React Webcam
+- **State Management**: Zustand
+- **Development**: TypeScript, ESLint, Prettier
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- Node.js (LTS version recommended)
+- pnpm package manager
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Installation
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. Clone the repository:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+   ```bash
+   git clone https://github.com/frizzyondabeat/assessment.git
+   cd assessment
+   ```
 
-## Learn More
+2. Install dependencies:
 
-To learn more about Next.js, take a look at the following resources:
+   ```bash
+   pnpm install
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+3. Start the development server:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+   ```bash
+   pnpm dev
+   ```
 
-## Deploy on Vercel
+4. Open your browser and navigate to `http://localhost:3000`
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Usage
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The application will guide you through a series of system checks:
+
+1. **Webcam Check**: Grants access to your camera to verify it's working properly
+2. **Lighting Check**: Analyzes the lighting conditions in your environment
+3. **Microphone Check**: Verifies your microphone is functioning correctly
+4. **Network Check**: Tests your internet connection stability
+
+Each check will display a status indicator showing whether the component is:
+
+- Checking (in progress)
+- Good/Granted (passed)
+- Poor/Denied (failed)
+- Error (technical issue)
+
+## Development Commands
+
+- `pnpm dev`: Start the development server with Turbopack
+- `pnpm build`: Build the application for production
+- `pnpm start`: Start the production server
+- `pnpm lint`: Run ESLint to check for code issues
+- `pnpm format`: Check code formatting with Prettier
+- `pnpm format:fix`: Automatically fix code formatting issues
+
+## License
+
+[Add your license information here]
+
+## Contributing
+
+[Add contribution guidelines here]

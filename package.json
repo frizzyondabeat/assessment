@@ -6,22 +6,49 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "format": "prettier --check --ignore-path .gitignore .",
+    "format:fix": "prettier --write --ignore-path .gitignore ."
   },
   "dependencies": {
+    "@number-flow/react": "^0.5.10",
+    "@radix-ui/react-dialog": "^1.1.14",
+    "@radix-ui/react-separator": "^1.1.7",
+    "@radix-ui/react-slot": "^1.2.3",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "iconsax-react": "^0.0.8",
+    "lucide-react": "^0.514.0",
+    "motion": "^12.17.3",
+    "next": "15.3.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "next": "15.3.3"
+    "react-timer-hook": "^3.0.8",
+    "react-use-measure": "^2.1.1",
+    "react-webcam": "^7.2.0",
+    "tailwind-merge": "^3.3.1",
+    "vaul": "^1.1.2",
+    "zustand": "^5.0.5"
   },
   "devDependencies": {
-    "typescript": "^5",
+    "@commitlint/cli": "^19.8.1",
+    "@commitlint/config-conventional": "^19.8.1",
+    "@commitlint/format": "^19.8.1",
+    "@commitlint/types": "^19.8.1",
+    "@eslint/eslintrc": "^3",
+    "@tailwindcss/postcss": "^4",
+    "@trivago/prettier-plugin-sort-imports": "^5.2.2",
+    "@types/crypto-js": "^4.2.2",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "@tailwindcss/postcss": "^4",
-    "tailwindcss": "^4",
     "eslint": "^9",
     "eslint-config-next": "15.3.3",
-    "@eslint/eslintrc": "^3"
+    "husky": "^9.1.7",
+    "prettier": "^3.5.3",
+    "prettier-plugin-tailwindcss": "^0.6.12",
+    "tailwindcss": "^4",
+    "tw-animate-css": "^1.3.4",
+    "typescript": "^5"
   }
 }

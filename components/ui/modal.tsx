@@ -117,7 +117,7 @@ const Modal: FC<ModalType> = ({
           <SheetContent
             side={side}
             className={cn(
-              'bg-background-1 overflow-hidden border-0',
+              'bg-background-1 gap-0 w-full overflow-hidden border-0',
               className,
               {
                 'rounded-tl-2xl rounded-tr-2xl': side === 'bottom',
@@ -127,26 +127,27 @@ const Modal: FC<ModalType> = ({
             )}
           >
             {(title || description) && (
-              <SheetHeader className="flex flex-row items-center justify-between space-y-0 border-b bg-white">
+              <SheetHeader className="flex flex-row p-4 text-white items-center h-full justify-between bg-[#755ae2]">
                 <div>
-                  {title && <SheetTitle>{title}</SheetTitle>}
+                  {title && <SheetTitle className="text-lg text-white font-semibold">{title}</SheetTitle>}
                   {description && (
-                    <SheetDescription>{description}</SheetDescription>
+                    <SheetDescription className="text-muted-foreground text-sm">{description}</SheetDescription>
                   )}
                 </div>
                 <SheetClose
                   className={cn(
-                    buttonVariants({ variant: 'ghost', size: 'icon' }),
-                    'ring-offset-background cursor-pointer focus:ring-1 focus:ring-offset-2 focus:outline-hidden disabled:pointer-events-none'
+                    buttonVariants({ variant: 'ghost', size: 'default' }),
+                    "hover:bg-[#F5F3FF33] hover:text-white cursor-pointer"
                   )}
                 >
-                  <XIcon className="size-4" />
-                  <span className="sr-only">Close</span>
+                  <span>Close</span>
                 </SheetClose>
               </SheetHeader>
             )}
-            {content}
-            {footer && <SheetFooter>{footer}</SheetFooter>}
+            <div className="bg-[#F5F3FF]">
+              {content}
+              {footer && <SheetFooter className="rounded-lg bg-white p-4 flex sm:items-center sm:justify-end">{footer}</SheetFooter>}
+            </div>
           </SheetContent>
         </Sheet>
       );
@@ -215,25 +216,27 @@ const Modal: FC<ModalType> = ({
             )}
           >
             {(title || description) && (
-              <SheetHeader className="flex flex-row items-center justify-between border-b bg-white">
+              <SheetHeader className="flex flex-row p-4 text-white items-center h-full justify-between bg-[#755ae2]">
                 <div>
-                  {title && <SheetTitle>{title}</SheetTitle>}
+                  {title && <SheetTitle className="text-lg font-semibold">{title}</SheetTitle>}
                   {description && (
-                    <SheetDescription>{description}</SheetDescription>
+                    <SheetDescription className="text-muted-foreground text-sm">{description}</SheetDescription>
                   )}
                 </div>
                 <SheetClose
                   className={cn(
-                    buttonVariants({ variant: 'ghost', size: 'icon' })
+                    buttonVariants({ variant: 'ghost', size: 'default' }),
+                    "hover:bg-[#F5F3FF33] hover:text-white cursor-pointer"
                   )}
                 >
-                  <XIcon className="size-4" />
-                  <span className="sr-only">Close</span>
+                  <span>Close</span>
                 </SheetClose>
               </SheetHeader>
             )}
-            {content}
-            {footer && <SheetFooter>{footer}</SheetFooter>}
+            <div className="bg-[#F5F3FF]">
+              {content}
+              {footer && <SheetFooter className="rounded-lg bg-white p-4 flex sm:items-center sm:justify-end">{footer}</SheetFooter>}
+            </div>
           </SheetContent>
         </Sheet>
       );

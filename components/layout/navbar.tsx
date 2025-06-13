@@ -5,7 +5,7 @@ import {useCountdownTimer} from '@/hooks/use-countdown-timer';
 import {Clock, Eye} from 'lucide-react';
 import Image from 'next/image';
 import React from 'react';
-import Modal from '../ui/modal';
+import TimesUpModal from '@/components/modals/times-up-modal';
 
 const Navbar = () => {
     const {timeLeft, isExpired, formatTime, pause, resume} = useCountdownTimer(
@@ -17,53 +17,22 @@ const Navbar = () => {
         <>
         {
             isExpired &&
-            <Modal
+            <TimesUpModal
                 open={isExpired}
                 onOpenChange={(open) => {
                     if (!open) {
-                        // Reset the timer or handle modal close logic here
-                        // For example, you might want to reset the timer
-                        // reset(30); // Reset to 30 minutes
+                    //     Awaiting logic if further designs
                     }
                 }}
-
-                // onOpenChange={setShowTimerExpiredModal}
-                alignment="center"
-                title="Time's Up!"
-                className="max-w-[90%] sm:max-w-md p-0"
-            >
-                <div className="flex flex-col items-center justify-center px-4 sm:px-8 py-6 sm:py-10">
-                    <h2 className="mb-2 text-center text-lg sm:text-xl font-medium text-[#755ae2]">
-                        Your time has expired
-                    </h2>
-                    <p className="mb-4 sm:mb-6 text-center text-xs sm:text-sm text-[#4a4a68]">
-                        You've reached the end of your allocated time.
-                        Please submit your assessment or request additional time
-                        if needed.
-                    </p>
-                </div>
-                <div
-                    className="flex flex-col sm:flex-row justify-center items-center space-y-3 sm:space-y-0 sm:space-x-4 pb-4 sm:pb-6">
-                    <Button
-                        className="h-9 sm:h-11 w-full sm:w-auto rounded-xl bg-gray-300 text-sm sm:text-[16px] font-normal hover:bg-gray-400"
-                        onClick={() => {
-                            // Handle request more time logic here
-                            console.log('Request more time clicked');
-                        }}
-                    >
-                        Request More Time
-                    </Button>
-                    <Button
-                        className="h-9 sm:h-11 w-full sm:w-auto rounded-xl bg-[#755ae2] text-sm sm:text-[16px] font-normal hover:bg-[#a18aff]"
-                        onClick={() => {
-                            // Handle submit assessment logic here
-                            console.log('Submit assessment clicked');
-                        }}
-                    >
-                        Submit Assessment
-                    </Button>
-                </div>
-            </Modal>
+                onRequestMoreTime={() => {
+                    // Handle request more time logic here
+                    console.log('Request more time clicked');
+                }}
+                onSubmitAssessment={() => {
+                    // Handle submit assessment logic here
+                    console.log('Submit assessment clicked');
+                }}
+            />
         }
             <header className="mb-6 w-full bg-white py-5">
                 <div className="mx-auto flex items-center justify-between px-6 md:px-14 lg:px-20">
